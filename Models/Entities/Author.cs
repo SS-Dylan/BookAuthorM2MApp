@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace BookAuthorM2MApp.Models.Entities;
 
@@ -9,6 +10,6 @@ public class Author
     public string? FirstName { get; set; } = string.Empty;
     [Required, StringLength(128)]
     public string LastName { get; set; } = string.Empty;
-
-    public ICollection<BookAuthor> BookAuthors { get; set; } = new List<BookAuthor>();
+    [DisplayName("Number of Books")]
+    public ICollection<Book> Books { get; set; } = new List<Book>();
 }

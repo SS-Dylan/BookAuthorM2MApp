@@ -12,8 +12,8 @@ public class AuthorController : Controller
         _authorRepo = authorRepo;
     }
 
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
-        return View();
+        return View(await _authorRepo.ReadAllAsync());
     }
 }

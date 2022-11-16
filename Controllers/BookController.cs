@@ -12,8 +12,8 @@ public class BookController : Controller
         _bookRepo = bookRepo;
     }
 
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
-        return View();
+        return View(await _bookRepo.ReadAllAsync());
     }
 }
